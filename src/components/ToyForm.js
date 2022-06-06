@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function ToyForm() {
+  useEffect(() => {
+    fetch("http://localhost:3001/toys", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify()
+    })
+    .then(res => res.json())
+    .then(newToy => console.log(newToy))
+  })
   return (
     <div className="container">
       <form className="add-toy-form">
